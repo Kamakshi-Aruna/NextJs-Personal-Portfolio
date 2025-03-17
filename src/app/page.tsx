@@ -1,103 +1,173 @@
+"use client";
+
 import Image from "next/image";
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { BsArrowRight, BsLinkedin } from "react-icons/bs";
+import { HiDownload } from "react-icons/hi";
+// import { FaGithubSquare } from "react-icons/fa";
+import { SiReact, SiNextdotjs, SiTailwindcss, SiMongodb, SiJavascript } from "react-icons/si";
+import {projects} from "@/lib/data";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    return (
+        <section id="home" className="mb-28 max-w-[50rem] mx-auto text-center sm:mb-0 scroll-mt-[100rem] mt-30">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+            {/* Hero Section */}
+            <div className="flex items-center justify-center">
+                <div className="relative">
+                    <motion.div
+                        initial={{opacity: 0, scale: 0}}
+                        animate={{opacity: 1, scale: 1}}
+                        transition={{type: "tween", duration: 0.2}}
+                    >
+                        <Image
+                            src="/profile.jpg"
+                            alt="Aruna portrait"
+                            width="192"
+                            height="192"
+                            quality="95"
+                            priority={true}
+                            className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+                        />
+                    </motion.div>
+
+                    <motion.span
+                        className="absolute bottom-0 right-0 text-4xl"
+                        initial={{opacity: 0, scale: 0}}
+                        animate={{opacity: 1, scale: 1}}
+                        transition={{type: "spring", stiffness: 125, delay: 0.1, duration: 0.7}}
+                    >
+                        👋
+                    </motion.span>
+                </div>
+            </div>
+
+            <motion.h1
+                className="mb-10 mt-4 px-4 text-lg font-medium !leading-[1.5] sm:text-3xl"
+                initial={{opacity: 0, y: 100}}
+                animate={{opacity: 1, y: 0}}
+            >
+                <span className="font-bold">Hello, I'm Aruna.</span> I'm a{" "}
+                <span className="font-bold">Next.js developer</span> with{" "}
+                <span className="font-bold">8 years</span> of experience. I enjoy
+                building <span className="italic">sites & apps</span>. My focus is{" "}
+                <span className="underline">React (Next.js)</span>.
+            </motion.h1>
+
+            {/* Call-to-Action Buttons */}
+            <motion.div
+                className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
+                initial={{opacity: 0, y: 100}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.1}}
+            >
+                <Link
+                    href="/contact"
+                    className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
+                >
+                    Contact me <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition"/>
+                </Link>
+
+                <a
+                    className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
+                    href="/Aruna_CV.pdf"
+                    download="Aruna_CV.pdf"
+                >
+                    Download CV <HiDownload className="opacity-60 group-hover:translate-y-1 transition"/>
+                </a>
+
+                {/*<a*/}
+                {/*    className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"*/}
+                {/*    href="https://linkedin.com"*/}
+                {/*    target="_blank"*/}
+                {/*>*/}
+                {/*    <BsLinkedin/>*/}
+                {/*</a>*/}
+
+                {/*<a*/}
+                {/*    className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"*/}
+                {/*    href="https://github.com"*/}
+                {/*    target="_blank"*/}
+                {/*>*/}
+                {/*    <FaGithubSquare/>*/}
+                {/*</a>*/}
+            </motion.div>
+
+            {/* Skills Section */}
+            <motion.section
+                className="mt-16 px-4"
+                initial={{opacity: 0, y: 50}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.2}}
+            >
+                <h2 className="text-xl font-semibold mb-6 sm:text-2xl">Skills & Expertise</h2>
+                <div className="flex flex-wrap justify-center gap-6 text-4xl sm:text-5xl">
+                    <motion.div whileHover={{scale: 1.2}} className="text-blue-500">
+                        <SiReact title="React.js"/>
+                    </motion.div>
+                    <motion.div whileHover={{scale: 1.2}} className="text-black">
+                        <SiNextdotjs title="Next.js"/>
+                    </motion.div>
+                    <motion.div whileHover={{scale: 1.2}} className="text-blue-400">
+                        <SiTailwindcss title="Tailwind CSS"/>
+                    </motion.div>
+                    <motion.div whileHover={{scale: 1.2}} className="text-green-500">
+                        <SiMongodb title="MongoDB"/>
+                    </motion.div>
+                    <motion.div whileHover={{scale: 1.2}} className="text-yellow-500">
+                        <SiJavascript title="JavaScript"/>
+                    </motion.div>
+                </div>
+            </motion.section>
+
+            {/* Experience Section */}
+            <motion.section
+                className="mt-16 px-4 text-left max-w-2xl mx-auto bg-gray-900 p-6 rounded-lg"
+                initial={{opacity: 0, y: 50}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.3}}
+            >
+                <h2 className="text-xl font-semibold mb-6 sm:text-2xl text-center text-white">Experience</h2>
+
+                <div className="space-y-6">
+                    <div className="p-4 bg-white shadow-md rounded-lg">
+                        <h3 className="text-lg font-semibold text-black">React Developer</h3>
+                        <p className="text-gray-700">Recruitly.io • 2024 - 2025</p>
+                        <ul className="list-disc list-inside mt-2 text-black">
+                            <li>Developed dynamic web applications with React.js and Redux.</li>
+                            <li>Implemented responsive designs using Tailwind CSS.</li>
+                            <li>Enhanced application performance by optimizing code and assets.</li>
+                        </ul>
+                    </div>
+                </div>
+            </motion.section>
+            {/*Featured Projects*/}
+            <motion.section
+                className="mt-16 px-4 text-left max-w-2xl mx-auto"
+                initial={{opacity: 0, y: 50}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.2}}
+            >
+                <h2 className="text-xl font-semibold mb-6 sm:text-2xl text-center">Featured Projects</h2>
+                <div className="grid gap-6 sm:grid-cols-2">
+                    {projects.map((project, index) => (
+                        <Link href={project.image} key={index} className="block">
+                            <motion.div
+                                whileHover={{scale: 1.05}}
+                                className="p-6 bg-gray-900 text-white shadow-md rounded-lg hover:shadow-xl transition"
+                            >
+                                <h3 className="text-lg font-semibold">{project.title}</h3>
+                                <p className="text-gray-300">{project.description}</p>
+                                <span className="text-blue-400 mt-2 inline-block">Read more →</span>
+                            </motion.div>
+                        </Link>
+                    ))}
+                </div>
+            </motion.section>
+
+
+        </section>
+    );
 }

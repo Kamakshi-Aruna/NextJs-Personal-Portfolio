@@ -51,5 +51,18 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/Kamakshi-Aruna/E-Commerce-Application-Final",
         liveDemoUrl: "https://aruna11-e-commerce-application.netlify.app/",
     },
+    {
+        id: 4,
+        title: "E-Commerce",
+        description: "This is a description of Project 4.",
+        technologies: ["React"],
+        image: "/e-commerce.png",
+        category: "Web Development",
+        problemStatement: "The problem statement for Project 4.",
+        solutionApproach: "The solution approach for Project 4.",
+        screenshots: ["/e-commerce.png", "/e-commerce-1.png"],
+        githubUrl: "https://github.com/Kamakshi-Aruna/E-Commerce-Application-Final",
+        liveDemoUrl: "https://aruna11-e-commerce-application.netlify.app/",
+    },
 ];
 
