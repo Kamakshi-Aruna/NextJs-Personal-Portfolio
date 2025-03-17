@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -12,9 +11,8 @@ export default function Navbar() {
         <nav
             className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-violet-600 text-white shadow-lg fixed w-full z-10 px-10 py-4">
             <div className="max-w-7xl mx-auto px-10 flex justify-between items-center">
-                {/* Logo and Brand Name */}
+
                 <Link href="/" className="flex items-center space-x-3">
-                    <Image src="/profile.jpg" alt="Logo" width={50} height={50} className="rounded-full"/>
                     <span className="text-3xl font-bold tracking-wide">MyPortfolio</span>
                 </Link>
 
