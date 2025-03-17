@@ -24,6 +24,7 @@ export const projects: Project[] = [
         solutionApproach: "The solution approach for Project 1.",
         screenshots: ["/nextjs-dashboard.png"],
         githubUrl: "https://github.com/Kamakshi-Aruna/nextjs-dashboard",
+        liveDemoUrl: "https://nextjs-dashboard-blond-eight-58.vercel.app/",
     },
     {
         id: 2,
