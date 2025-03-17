@@ -65,13 +65,13 @@ export default function Home() {
             >
                 <Link
                     href="/contact"
-                    className="group bg-gray-900 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition"
+                    className="group bg-gray-100 text-black px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-90 hover:bg-gray-200 active:scale-105 transition"
                 >
                     Contact me <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition"/>
                 </Link>
 
                 <a
-                    className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
+                    className="group bg-gray-100 text-black px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-90 hover:bg-gray-200 active:scale-105 transition"
                     href="/Aruna_CV.pdf"
                     download="Aruna_CV.pdf"
                 >
