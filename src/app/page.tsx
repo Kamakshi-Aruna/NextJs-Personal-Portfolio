@@ -49,9 +49,9 @@ export default function Home() {
                 initial={{opacity: 0, y: 100}}
                 animate={{opacity: 1, y: 0}}
             >
-                <span className="font-bold">Hello, I'm Aruna.</span> I'm a{" "}
-                <span className="font-bold">Next.js developer</span> with{" "}
-                <span className="font-bold">8 years</span> of experience. I enjoy
+                <span>Hello, I'm Aruna.</span> I'm a{" "}
+                <span>React developer</span> with{" "}
+                <span></span> of experience 4 months. I enjoy
                 building <span className="italic">sites & apps</span>. My focus is{" "}
                 <span className="underline">React (Next.js)</span>.
             </motion.h1>
