@@ -105,7 +105,7 @@ export const education = {
     title: "Education",
     degree: "Bachelor of Science in Computer Science",
     university: "SV University",
-    duration: "2009 - 2013",
+    duration: "2021 - 2023",
     description: "Core coursework included algorithms, data structures, database systems, and web development. Minor in Mathematics."
 };
 
