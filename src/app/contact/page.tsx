@@ -41,8 +41,6 @@ export default function ContactPage() {
             } else {
                 toast.error("Error sending email. Try again!"); // Error toast
             }
-        } catch (error) {
-            toast.error("Network error. Please check your connection."); // Network error toast
         } finally {
             setIsSubmitting(false);
         }
