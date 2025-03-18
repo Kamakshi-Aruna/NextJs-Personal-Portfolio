@@ -45,7 +45,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
             >
-                <span>Hello, I'm <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Aruna Kamakshi</span>.</span> I'm a {" "}
+                <span>Hello, I&apos;m <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Aruna Kamakshi</span>.</span> I&apos;m a {" "}
                 <span>React developer</span> with{" "}
                 <span></span> of experience 4 months. I enjoy
                 building <span className="italic">sites & apps</span>. My focus is{" "}
