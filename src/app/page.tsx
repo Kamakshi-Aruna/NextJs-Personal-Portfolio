@@ -143,6 +143,7 @@ export default function Home() {
                     </div>
                 </div>
             </motion.section>
+
             {/*Featured Projects*/}
             <motion.section
                 className="mt-16 px-4 text-left max-w-2xl mx-auto"
@@ -153,16 +154,18 @@ export default function Home() {
                 <h2 className="text-xl font-semibold mb-6 sm:text-2xl text-center">Featured Projects</h2>
                 <div className="grid gap-6 sm:grid-cols-2">
                     {projects.map((project, index) => (
-                        <Link href={project.image} key={index} className="block">
-                            <motion.div
-                                whileHover={{scale: 1.05}}
-                                className="p-6 bg-gray-900 text-white shadow-md rounded-lg hover:shadow-xl transition"
-                            >
-                                <h3 className="text-lg font-semibold">{project.title}</h3>
-                                <p className="text-gray-300">{project.description}</p>
-                                <span className="text-blue-400 mt-2 inline-block">Read more →</span>
-                            </motion.div>
-                        </Link>
+                        <motion.div
+                            key={index}
+                            whileHover={{scale: 1.05}}
+                            className="p-6 bg-gray-900 text-white shadow-md rounded-lg hover:shadow-xl transition"
+                        >
+                            <h3 className="text-lg font-semibold">{project.title}</h3>
+                            <p className="text-gray-300">{project.description}</p>
+                            {/* Navigate to the project details page */}
+                            <Link href={`/projects/${project.id}`} className="text-blue-400 mt-2 inline-block">
+                                Read more →
+                            </Link>
+                        </motion.div>
                     ))}
                 </div>
             </motion.section>
