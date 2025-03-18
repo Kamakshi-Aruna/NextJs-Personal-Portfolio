@@ -56,7 +56,7 @@ export default function Page() {
                             <div>
                                 <div className="flex justify-between items-start mb-2">
                                     <h3 className="text-xl font-medium">Junior Developer</h3>
-                                    <span className="text-gray-500">2015 - 2017</span>
+                                    <span className="text-gray-500">2024 - 2025</span>
                                 </div>
                                 <p className="text-gray-600 mb-2">Recruitly.io</p>
                                 <ul className="list-disc pl-5 text-gray-700">
