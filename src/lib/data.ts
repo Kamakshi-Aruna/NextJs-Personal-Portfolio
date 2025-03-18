@@ -72,12 +72,34 @@ export const professionalExperience = {
 export const skills = {
     title: "Skills",
     categories: [
-        { name: "Programming Languages", items: ["Java", "JavaScript", "SQL"] },
-        { name: "Frameworks & Libraries", items: ["React", "Next.js"] },
-        { name: "Tools & Platforms", items: ["Git", "Docker", "AWS", "Vercel", "GitHub Actions"] },
-        { name: "Other Skills", items: ["UI/UX Design"] }
+        {
+            name: "Programming Languages",
+            items: [
+                { name: "Java", percentage: 85 },
+                { name: "SQL", percentage: 75 }
+            ]
+        },
+        {
+            name: "Frameworks & Libraries",
+            items: [
+                { name: "React", percentage: 90 },
+                { name: "Next.js", percentage: 85 }
+            ]
+        },
+        {
+            name: "Tools & Platforms",
+            items: [
+                { name: "Git", percentage: 80 },
+                { name: "AWS", percentage: 60 },
+            ]
+        },
+        {
+            name: "Other Skills",
+            items: [{ name: "UI/UX Design", percentage: 50 }]
+        }
     ]
 };
+
 
 export const education = {
     title: "Education",

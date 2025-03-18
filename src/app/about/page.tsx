@@ -1,13 +1,21 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Download } from 'lucide-react';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { professionalExperience, skills, education, certifications, resume } from '@/lib/data';
+import {useState} from "react";
+import {Download} from "lucide-react";
+import Link from "next/link";
+import {motion, AnimatePresence} from "framer-motion";
+import {
+    professionalExperience,
+    skills,
+    education,
+    certifications,
+    resume,
+} from "@/lib/data";
 
 export default function Page() {
-    const [activeTab, setActiveTab] = useState<'professional' | 'education'>('professional');
+    const [activeTab, setActiveTab] = useState<"professional" | "education">(
+        "professional"
+    );
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-12 mt-20">
@@ -15,42 +23,42 @@ export default function Page() {
 
             {/* Tab Navigation */}
             <div className="flex mb-8 border-b">
-                <button
-                    onClick={() => setActiveTab('professional')}
-                    className={`px-4 py-2 font-medium ${
-                        activeTab === 'professional'
-                            ? 'text-blue-600 border-b-2 border-blue-600'
-                            : 'text-gray-500 hover:text-gray-700'
-                    }`}
-                >
-                    Professional Background
-                </button>
-                <button
-                    onClick={() => setActiveTab('education')}
-                    className={`px-4 py-2 font-medium ${
-                        activeTab === 'education'
-                            ? 'text-blue-600 border-b-2 border-blue-600'
-                            : 'text-gray-500 hover:text-gray-700'
-                    }`}
-                >
-                    Education & Certifications
-                </button>
+                {["professional", "education"].map((tab) => (
+                    <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab as "professional" | "education")}
+                        className={`px-4 py-2 font-medium ${
+                            activeTab === tab
+                                ? "text-blue-600 border-b-2 border-blue-600"
+                                : "text-gray-500 hover:text-gray-700"
+                        }`}
+                    >
+                        {tab === "professional"
+                            ? "Professional Background"
+                            : "Education & Certifications"}
+                    </button>
+                ))}
             </div>
 
             {/* Tab Content */}
             <AnimatePresence mode="wait">
-                {activeTab === 'professional' && (
+                {activeTab === "professional" && (
                     <motion.div
                         key="professional"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        exit={{opacity: 0, y: -20}}
+                        transition={{duration: 0.3}}
                         className="space-y-6"
                     >
                         {/* Professional Experience */}
-                        <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md p-6">
-                            <h2 className="text-2xl font-semibold mb-4">{professionalExperience.title}</h2>
+                        <motion.div
+                            whileHover={{scale: 1.02}}
+                            className="bg-white rounded-lg shadow-md p-6"
+                        >
+                            <h2 className="text-2xl font-semibold mb-4">
+                                {professionalExperience.title}
+                            </h2>
                             {professionalExperience.jobs.map((job, index) => (
                                 <div key={index}>
                                     <div className="flex justify-between items-start mb-2">
@@ -67,14 +75,36 @@ export default function Page() {
                             ))}
                         </motion.div>
 
-                        {/* Skills */}
-                        <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md p-6">
+                        {/* Skills with Progress Bars */}
+                        <motion.div
+                            whileHover={{scale: 1.02}}
+                            className="bg-white rounded-lg shadow-md p-6"
+                        >
                             <h2 className="text-2xl font-semibold mb-4">{skills.title}</h2>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                 {skills.categories.map((category, i) => (
-                                    <div key={i}>
-                                        <h3 className="font-medium mb-2">{category.name}</h3>
-                                        <p className="text-gray-700">{category.items.join(', ')}</p>
+                                    <div key={i} className="bg-white p-5 rounded-lg shadow-sm">
+                                        <h3 className="font-semibold text-lg mb-4">{category.name}</h3>
+                                        {category.items.map((skill, j) => (
+                                            <div key={j} className="mb-4">
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <p className="text-gray-700 font-medium">{skill.name}</p>
+                                                    <span className="text-sm text-gray-500">{skill.percentage}%</span>
+                                                </div>
+                                                <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+                                                    <motion.div
+                                                        initial={{width: "0%"}}
+                                                        animate={{width: `${skill.percentage}%`}}
+                                                        transition={{duration: 1, ease: "easeOut"}}
+                                                        className={`h-2.5 rounded-full ${
+                                                            skill.percentage > 80 ? "bg-blue-600" :
+                                                                skill.percentage > 60 ? "bg-blue-500" :
+                                                                    skill.percentage > 40 ? "bg-blue-400" : "bg-blue-300"
+                                                        }`}
+                                                    />
+                                                </div>
+                                            </div>
+                                        ))}
                                     </div>
                                 ))}
                             </div>
@@ -82,17 +112,20 @@ export default function Page() {
                     </motion.div>
                 )}
 
-                {activeTab === 'education' && (
+                {activeTab === "education" && (
                     <motion.div
                         key="education"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.3 }}
+                        initial={{opacity: 0, y: 20}}
+                        animate={{opacity: 1, y: 0}}
+                        exit={{opacity: 0, y: -20}}
+                        transition={{duration: 0.3}}
                         className="space-y-6"
                     >
                         {/* Education */}
-                        <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md p-6">
+                        <motion.div
+                            whileHover={{scale: 1.02}}
+                            className="bg-white rounded-lg shadow-md p-6"
+                        >
                             <h2 className="text-2xl font-semibold mb-4">{education.title}</h2>
                             <div>
                                 <div className="flex justify-between items-start mb-2">
@@ -105,8 +138,13 @@ export default function Page() {
                         </motion.div>
 
                         {/* Certifications */}
-                        <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md p-6">
-                            <h2 className="text-2xl font-semibold mb-4">{certifications.title}</h2>
+                        <motion.div
+                            whileHover={{scale: 1.02}}
+                            className="bg-white rounded-lg shadow-md p-6"
+                        >
+                            <h2 className="text-2xl font-semibold mb-4">
+                                {certifications.title}
+                            </h2>
                             <div className="space-y-4">
                                 {certifications.list.map((cert, i) => (
                                     <div key={i}>
@@ -124,14 +162,22 @@ export default function Page() {
             </AnimatePresence>
 
             {/* Resume Download Section */}
-            <motion.div whileHover={{ scale: 1.02 }} className="mt-10 bg-gray-50 rounded-lg p-6 shadow-md">
+            <motion.div
+                whileHover={{scale: 1.02}}
+                className="mt-10 bg-gray-50 rounded-lg p-6 shadow-md"
+            >
                 <div className="flex items-center justify-between">
                     <div>
                         <h2 className="text-2xl font-semibold mb-2">{resume.title}</h2>
                         <p className="text-gray-600">{resume.description}</p>
                     </div>
-                    <Link href={resume.filePath} className="bg-blue-600 text-white py-2 px-4 rounded-md flex items-center hover:bg-blue-700 transition-colors" target="_blank" rel="noopener noreferrer">
-                        <Download className="w-4 h-4 mr-2" />
+                    <Link
+                        href={resume.filePath}
+                        className="bg-blue-600 text-white py-2 px-4 rounded-md flex items-center hover:bg-blue-700 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <Download className="w-4 h-4 mr-2"/>
                         Download CV
                     </Link>
                 </div>
