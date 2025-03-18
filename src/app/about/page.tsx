@@ -132,31 +132,17 @@ export default function Page() {
                             <div className="space-y-4">
                                 <div>
                                     <div className="flex justify-between items-start">
-                                        <h3 className="text-xl font-medium">AWS Certified Solutions Architect</h3>
+                                        <h3 className="text-xl font-medium">Java Certified Developer</h3>
                                         <span className="text-gray-500">2023</span>
                                     </div>
-                                    <p className="text-gray-600">Amazon Web Services</p>
-                                </div>
-                                <div>
-                                    <div className="flex justify-between items-start">
-                                        <h3 className="text-xl font-medium">Professional Scrum Master I (PSM I)</h3>
-                                        <span className="text-gray-500">2022</span>
-                                    </div>
-                                    <p className="text-gray-600">Scrum.org</p>
+                                    <p className="text-gray-600">Jspiders</p>
                                 </div>
                                 <div>
                                     <div className="flex justify-between items-start">
                                         <h3 className="text-xl font-medium">MongoDB Certified Developer</h3>
-                                        <span className="text-gray-500">2021</span>
+                                        <span className="text-gray-500">2023</span>
                                     </div>
-                                    <p className="text-gray-600">MongoDB Inc.</p>
-                                </div>
-                                <div>
-                                    <div className="flex justify-between items-start">
-                                        <h3 className="text-xl font-medium">React Certification</h3>
-                                        <span className="text-gray-500">2020</span>
-                                    </div>
-                                    <p className="text-gray-600">Meta (formerly Facebook)</p>
+                                    <p className="text-gray-600">Jspiders</p>
                                 </div>
                             </div>
                         </motion.div>
