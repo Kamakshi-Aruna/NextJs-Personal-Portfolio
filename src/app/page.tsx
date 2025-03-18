@@ -29,11 +29,11 @@ export default function Home() {
                         <Image
                             src="/profile.jpg"
                             alt="Aruna portrait"
-                            width="192"
-                            height="192"
+                            width="230"
+                            height="230"
                             quality="95"
                             priority={true}
-                            className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+                            className="h-34 w-34 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
                         />
                     </motion.div>
                 </div>
