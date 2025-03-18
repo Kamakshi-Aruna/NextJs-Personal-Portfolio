@@ -85,7 +85,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
         >
             <motion.h1
-                className="text-3xl  mb-6 text-center text-black"
+                className="text-3xl  mb-6 text-center text-gray-800"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
