@@ -75,7 +75,7 @@ export const skills = {
         {
             name: "Programming Languages",
             items: [
-                { name: "Java", percentage: 85 },
+                { name: "JavaScript", percentage: 85 },
                 { name: "SQL", percentage: 75 }
             ]
         },
@@ -90,7 +90,7 @@ export const skills = {
             name: "Tools & Platforms",
             items: [
                 { name: "Git", percentage: 80 },
-                { name: "AWS", percentage: 60 },
+                { name: "Vercel", percentage: 60 },
             ]
         },
         {

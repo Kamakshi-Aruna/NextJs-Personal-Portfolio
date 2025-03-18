@@ -56,13 +56,13 @@ export default function Page() {
                             whileHover={{scale: 1.02}}
                             className="bg-white rounded-lg shadow-md p-6"
                         >
-                            <h2 className="text-2xl font-semibold mb-4">
+                            <h2 className="text-2xl mb-4">
                                 {professionalExperience.title}
                             </h2>
                             {professionalExperience.jobs.map((job, index) => (
                                 <div key={index}>
                                     <div className="flex justify-between items-start mb-2">
-                                        <h3 className="text-xl font-medium">{job.position}</h3>
+                                        <h3 className="text-xl">{job.position}</h3>
                                         <span className="text-gray-500">{job.duration}</span>
                                     </div>
                                     <p className="text-gray-600 mb-2">{job.company}</p>
@@ -80,15 +80,15 @@ export default function Page() {
                             whileHover={{scale: 1.02}}
                             className="bg-white rounded-lg shadow-md p-6"
                         >
-                            <h2 className="text-2xl font-semibold mb-4">{skills.title}</h2>
+                            <h2 className="text-2xl mb-4">{skills.title}</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                                 {skills.categories.map((category, i) => (
                                     <div key={i} className="bg-white p-5 rounded-lg shadow-sm">
-                                        <h3 className="font-semibold text-lg mb-4">{category.name}</h3>
+                                        <h3 className="text-xl mb-4">{category.name}</h3>
                                         {category.items.map((skill, j) => (
                                             <div key={j} className="mb-4">
                                                 <div className="flex justify-between items-center mb-1">
-                                                    <p className="text-gray-700 font-medium">{skill.name}</p>
+                                                    <p className="text-gray-700">{skill.name}</p>
                                                     <span className="text-sm text-gray-500">{skill.percentage}%</span>
                                                 </div>
                                                 <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
@@ -126,10 +126,10 @@ export default function Page() {
                             whileHover={{scale: 1.02}}
                             className="bg-white rounded-lg shadow-md p-6"
                         >
-                            <h2 className="text-2xl font-semibold mb-4">{education.title}</h2>
+                            <h2 className="text-2xl mb-4">{education.title}</h2>
                             <div>
                                 <div className="flex justify-between items-start mb-2">
-                                    <h3 className="text-xl font-medium">{education.degree}</h3>
+                                    <h3 className="text-xl">{education.degree}</h3>
                                     <span className="text-gray-500">{education.duration}</span>
                                 </div>
                                 <p className="text-gray-600">{education.university}</p>
@@ -142,14 +142,14 @@ export default function Page() {
                             whileHover={{scale: 1.02}}
                             className="bg-white rounded-lg shadow-md p-6"
                         >
-                            <h2 className="text-2xl font-semibold mb-4">
+                            <h2 className="text-2xl mb-4">
                                 {certifications.title}
                             </h2>
                             <div className="space-y-4">
                                 {certifications.list.map((cert, i) => (
                                     <div key={i}>
                                         <div className="flex justify-between items-start">
-                                            <h3 className="text-xl font-medium">{cert.name}</h3>
+                                            <h3 className="text-gray-900">{cert.name}</h3>
                                             <span className="text-gray-500">{cert.year}</span>
                                         </div>
                                         <p className="text-gray-600">{cert.provider}</p>
@@ -168,7 +168,7 @@ export default function Page() {
             >
                 <div className="flex items-center justify-between">
                     <div>
-                        <h2 className="text-2xl font-semibold mb-2">{resume.title}</h2>
+                        <h2 className="text-2xl mb-2">{resume.title}</h2>
                         <p className="text-gray-600">{resume.description}</p>
                     </div>
                     <Link

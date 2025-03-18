@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-import { SiReact, SiNextdotjs, SiTailwindcss, SiMongodb, SiJavascript } from "react-icons/si";
+import { SiReact, SiNextdotjs, SiMysql,SiGit,SiVercel,SiJavascript  } from "react-icons/si";
 import { projects } from "@/lib/data";
 
 export default function Home() {
@@ -84,19 +84,22 @@ export default function Home() {
             >
                 <h2 className="text-xl font-semibold mb-6 sm:text-2xl">Skills & Expertise</h2>
                 <div className="flex flex-wrap justify-center gap-6 text-4xl sm:text-5xl">
-                    <motion.div whileHover={{ scale: 1.2 }} className="text-blue-500">
+                    <motion.div whileHover={{scale: 1.2}} className="text-blue-500">
                         <SiReact title="React.js"/>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.2 }} className="text-black">
+                    <motion.div whileHover={{scale: 1.2}} className="text-black">
                         <SiNextdotjs title="Next.js"/>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.2 }} className="text-blue-400">
-                        <SiTailwindcss title="Tailwind CSS"/>
+                    <motion.div whileHover={{scale: 1.2}} className="text-blue-500">
+                        <SiMysql title="MySQL"/>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.2 }} className="text-green-500">
-                        <SiMongodb title="MongoDB"/>
+                    <motion.div whileHover={{scale: 1.2}} className="text-orange-500">
+                        <SiGit title="Git"/>
                     </motion.div>
-                    <motion.div whileHover={{ scale: 1.2 }} className="text-yellow-500">
+                    <motion.div whileHover={{scale: 1.2}} className="text-black">
+                        <SiVercel title="Vercel"/>
+                    </motion.div>
+                    <motion.div whileHover={{scale: 1.2}} className="text-yellow-500">
                         <SiJavascript title="JavaScript"/>
                     </motion.div>
                 </div>
