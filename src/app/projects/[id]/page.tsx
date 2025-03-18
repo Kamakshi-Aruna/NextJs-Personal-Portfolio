@@ -48,15 +48,6 @@ export default function ProjectDetailPage({
                 )}
             </div>
 
-            {/* Problem & Solution Sections */}
-            <div className="mt-8">
-                <h2 className="text-xl font-semibold mb-4">Problem Statement</h2>
-                <p className="text-gray-700">{project.problemStatement}</p>
-
-                <h2 className="text-xl font-semibold mt-6 mb-4">Solution Approach</h2>
-                <p className="text-gray-700">{project.solutionApproach}</p>
-            </div>
-
             {/* Technologies Used */}
             <div className="mt-8">
                 <h2 className="text-xl font-semibold mb-4">Technologies Used</h2>
