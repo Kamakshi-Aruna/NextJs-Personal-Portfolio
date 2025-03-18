@@ -183,7 +183,7 @@ export default function ContactPage() {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.7 }}
                     >
-                        Email: arunaKamakshi09@gmail.com
+                        Email: arunaKamakshi@gmail.com
                     </motion.p>
                 </motion.div>
             </motion.div>
