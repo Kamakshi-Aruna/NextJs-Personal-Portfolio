@@ -1,15 +1,16 @@
 'use client';
 
-import {useState} from 'react';
-import {Download} from 'lucide-react';
+import { useState } from 'react';
+import { Download } from 'lucide-react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Page() {
-    const [activeTab, setActiveTab] = useState<'professional' | 'education' | 'personal'>('professional');
+    const [activeTab, setActiveTab] = useState<'professional' | 'education'>('professional');
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-12 mt-20">
-            <h1 className="text-3xl  mb-8 text-gray-800">About Me</h1>
+            <h1 className="text-3xl mb-8 text-gray-800">About Me</h1>
 
             {/* Tab Navigation */}
             <div className="flex mb-8 border-b">
@@ -35,116 +36,139 @@ export default function Page() {
                 </button>
             </div>
 
-            {/* Professional Background */}
-            {activeTab === 'professional' && (
-                <div className="space-y-6 animate-fadeIn">
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-2xl font-semibold mb-4">Professional Experience</h2>
-
-                        <div>
-                            <div className="flex justify-between items-start mb-2">
-                                <h3 className="text-xl font-medium">Junior Developer</h3>
-                                <span className="text-gray-500">2015 - 2017</span>
-                            </div>
-                            <p className="text-gray-600 mb-2">Recruitly.io</p>
-                            <ul className="list-disc pl-5 text-gray-700">
-                                <li>Assisted in front-end development using HTML, CSS, and JavaScript,ReactJs,Next.js</li>
-                                <li>Participated in daily standup meetings and sprint planning</li>
-                                <li>Fixed bugs and implemented small feature requests</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-2xl font-semibold mb-4">Skills</h2>
-
-                        <div className="grid grid-cols-2 gap-4">
+            {/* Tab Content */}
+            <AnimatePresence mode="wait">
+                {activeTab === 'professional' && (
+                    <motion.div
+                        key="professional"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="space-y-6"
+                    >
+                        {/* Professional Experience */}
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="bg-white rounded-lg shadow-md p-6"
+                        >
+                            <h2 className="text-2xl font-semibold mb-4">Professional Experience</h2>
                             <div>
-                                <h3 className="font-medium mb-2">Programming Languages</h3>
-                                <p className="text-gray-700">Java, JavaScript, SQL</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-medium mb-2">Frameworks & Libraries</h3>
-                                <p className="text-gray-700">React, Next.js</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-medium mb-2">Tools & Platforms</h3>
-                                <p className="text-gray-700">Git, Docker, AWS, Vercel, GitHub Actions</p>
-                            </div>
-
-                            <div>
-                                <h3 className="font-medium mb-2">Other Skills</h3>
-                                <p className="text-gray-700">UI/UX Design</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-
-            {/* Education & Certifications */}
-            {activeTab === 'education' && (
-                <div className="space-y-6 animate-fadeIn">
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-2xl font-semibold mb-4">Education</h2>
-
-                        <div>
-                            <div className="flex justify-between items-start mb-2">
-                                <h3 className="text-xl font-medium">Bachelor of Science in Computer Science</h3>
-                                <span className="text-gray-500">2009 - 2013</span>
-                            </div>
-                            <p className="text-gray-600">SV University</p>
-                            <p className="text-gray-700 mt-2">
-                                Core coursework included algorithms, data structures, database systems, and web
-                                development.
-                                Minor in Mathematics.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="bg-white rounded-lg shadow-md p-6">
-                        <h2 className="text-2xl font-semibold mb-4">Certifications</h2>
-
-                        <div className="space-y-4">
-                            <div>
-                                <div className="flex justify-between items-start">
-                                    <h3 className="text-xl font-medium">AWS Certified Solutions Architect</h3>
-                                    <span className="text-gray-500">2023</span>
+                                <div className="flex justify-between items-start mb-2">
+                                    <h3 className="text-xl font-medium">Junior Developer</h3>
+                                    <span className="text-gray-500">2015 - 2017</span>
                                 </div>
-                                <p className="text-gray-600">Amazon Web Services</p>
+                                <p className="text-gray-600 mb-2">Recruitly.io</p>
+                                <ul className="list-disc pl-5 text-gray-700">
+                                    <li>Assisted in front-end development using HTML, CSS, and JavaScript, ReactJs, Next.js</li>
+                                    <li>Participated in daily standup meetings and sprint planning</li>
+                                    <li>Fixed bugs and implemented small feature requests</li>
+                                </ul>
                             </div>
+                        </motion.div>
 
-                            <div>
-                                <div className="flex justify-between items-start">
-                                    <h3 className="text-xl font-medium">Professional Scrum Master I (PSM I)</h3>
-                                    <span className="text-gray-500">2022</span>
+                        {/* Skills */}
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="bg-white rounded-lg shadow-md p-6"
+                        >
+                            <h2 className="text-2xl font-semibold mb-4">Skills</h2>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <h3 className="font-medium mb-2">Programming Languages</h3>
+                                    <p className="text-gray-700">Java, JavaScript, SQL</p>
                                 </div>
-                                <p className="text-gray-600">Scrum.org</p>
+                                <div>
+                                    <h3 className="font-medium mb-2">Frameworks & Libraries</h3>
+                                    <p className="text-gray-700">React, Next.js</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-medium mb-2">Tools & Platforms</h3>
+                                    <p className="text-gray-700">Git, Docker, AWS, Vercel, GitHub Actions</p>
+                                </div>
+                                <div>
+                                    <h3 className="font-medium mb-2">Other Skills</h3>
+                                    <p className="text-gray-700">UI/UX Design</p>
+                                </div>
                             </div>
+                        </motion.div>
+                    </motion.div>
+                )}
 
+                {activeTab === 'education' && (
+                    <motion.div
+                        key="education"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                        className="space-y-6"
+                    >
+                        {/* Education */}
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="bg-white rounded-lg shadow-md p-6"
+                        >
+                            <h2 className="text-2xl font-semibold mb-4">Education</h2>
                             <div>
-                                <div className="flex justify-between items-start">
-                                    <h3 className="text-xl font-medium">MongoDB Certified Developer</h3>
-                                    <span className="text-gray-500">2021</span>
+                                <div className="flex justify-between items-start mb-2">
+                                    <h3 className="text-xl font-medium">Bachelor of Science in Computer Science</h3>
+                                    <span className="text-gray-500">2009 - 2013</span>
                                 </div>
-                                <p className="text-gray-600">MongoDB Inc.</p>
+                                <p className="text-gray-600">SV University</p>
+                                <p className="text-gray-700 mt-2">
+                                    Core coursework included algorithms, data structures, database systems, and web development. Minor in
+                                    Mathematics.
+                                </p>
                             </div>
+                        </motion.div>
 
-                            <div>
-                                <div className="flex justify-between items-start">
-                                    <h3 className="text-xl font-medium">React Certification</h3>
-                                    <span className="text-gray-500">2020</span>
+                        {/* Certifications */}
+                        <motion.div
+                            whileHover={{ scale: 1.02 }}
+                            className="bg-white rounded-lg shadow-md p-6"
+                        >
+                            <h2 className="text-2xl font-semibold mb-4">Certifications</h2>
+                            <div className="space-y-4">
+                                <div>
+                                    <div className="flex justify-between items-start">
+                                        <h3 className="text-xl font-medium">AWS Certified Solutions Architect</h3>
+                                        <span className="text-gray-500">2023</span>
+                                    </div>
+                                    <p className="text-gray-600">Amazon Web Services</p>
                                 </div>
-                                <p className="text-gray-600">Meta (formerly Facebook)</p>
+                                <div>
+                                    <div className="flex justify-between items-start">
+                                        <h3 className="text-xl font-medium">Professional Scrum Master I (PSM I)</h3>
+                                        <span className="text-gray-500">2022</span>
+                                    </div>
+                                    <p className="text-gray-600">Scrum.org</p>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-start">
+                                        <h3 className="text-xl font-medium">MongoDB Certified Developer</h3>
+                                        <span className="text-gray-500">2021</span>
+                                    </div>
+                                    <p className="text-gray-600">MongoDB Inc.</p>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-start">
+                                        <h3 className="text-xl font-medium">React Certification</h3>
+                                        <span className="text-gray-500">2020</span>
+                                    </div>
+                                    <p className="text-gray-600">Meta (formerly Facebook)</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            )}
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* Resume Download Section */}
-            <div className="mt-10 bg-gray-50 rounded-lg p-6 shadow-md">
+            <motion.div
+                whileHover={{ scale: 1.02 }}
+                className="mt-10 bg-gray-50 rounded-lg p-6 shadow-md"
+            >
                 <div className="flex items-center justify-between">
                     <div>
                         <h2 className="text-2xl font-semibold mb-2">Download My Resume</h2>
@@ -156,11 +180,11 @@ export default function Page() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <Download className="w-4 h-4 mr-2"/>
+                        <Download className="w-4 h-4 mr-2" />
                         Download CV
                     </Link>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }
