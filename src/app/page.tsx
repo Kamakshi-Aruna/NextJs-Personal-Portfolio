@@ -4,23 +4,27 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BsArrowRight, BsLinkedin } from "react-icons/bs";
+import { BsArrowRight } from "react-icons/bs";
 import { HiDownload } from "react-icons/hi";
-// import { FaGithubSquare } from "react-icons/fa";
 import { SiReact, SiNextdotjs, SiTailwindcss, SiMongodb, SiJavascript } from "react-icons/si";
-import {projects} from "@/lib/data";
+import { projects } from "@/lib/data";
 
 export default function Home() {
     return (
         <section id="home" className="mb-28 max-w-[50rem] mx-auto text-center sm:mb-0 scroll-mt-[100rem] mt-30">
 
             {/* Hero Section */}
-            <div className="flex items-center justify-center">
+            <motion.div
+                className="flex items-center justify-center"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
                 <div className="relative">
                     <motion.div
-                        initial={{opacity: 0, scale: 0}}
-                        animate={{opacity: 1, scale: 1}}
-                        transition={{type: "tween", duration: 0.2}}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ type: "spring", stiffness: 100, damping: 10 }}
                     >
                         <Image
                             src="/profile.jpg"
@@ -32,22 +36,14 @@ export default function Home() {
                             className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
                         />
                     </motion.div>
-
-                    <motion.span
-                        className="absolute bottom-0 right-0 text-4xl"
-                        initial={{opacity: 0, scale: 0}}
-                        animate={{opacity: 1, scale: 1}}
-                        transition={{type: "spring", stiffness: 125, delay: 0.1, duration: 0.7}}
-                    >
-                        👋
-                    </motion.span>
                 </div>
-            </div>
+            </motion.div>
 
             <motion.h1
                 className="mb-10 mt-4 px-4 text-lg font-medium !leading-[1.5] sm:text-3xl"
-                initial={{opacity: 0, y: 100}}
-                animate={{opacity: 1, y: 0}}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
             >
                 <span>Hello, I'm Aruna.</span> I'm a{" "}
                 <span>React developer</span> with{" "}
@@ -59,9 +55,9 @@ export default function Home() {
             {/* Call-to-Action Buttons */}
             <motion.div
                 className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-                initial={{opacity: 0, y: 100}}
-                animate={{opacity: 1, y: 0}}
-                transition={{delay: 0.1}}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
             >
                 <Link
                     href="/contact"
@@ -77,46 +73,30 @@ export default function Home() {
                 >
                     Download CV <HiDownload className="opacity-60 group-hover:translate-y-1 transition"/>
                 </a>
-
-                {/*<a*/}
-                {/*    className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"*/}
-                {/*    href="https://linkedin.com"*/}
-                {/*    target="_blank"*/}
-                {/*>*/}
-                {/*    <BsLinkedin/>*/}
-                {/*</a>*/}
-
-                {/*<a*/}
-                {/*    className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"*/}
-                {/*    href="https://github.com"*/}
-                {/*    target="_blank"*/}
-                {/*>*/}
-                {/*    <FaGithubSquare/>*/}
-                {/*</a>*/}
             </motion.div>
 
             {/* Skills Section */}
             <motion.section
                 className="mt-16 px-4"
-                initial={{opacity: 0, y: 50}}
-                animate={{opacity: 1, y: 0}}
-                transition={{delay: 0.2}}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
             >
                 <h2 className="text-xl font-semibold mb-6 sm:text-2xl">Skills & Expertise</h2>
                 <div className="flex flex-wrap justify-center gap-6 text-4xl sm:text-5xl">
-                    <motion.div whileHover={{scale: 1.2}} className="text-blue-500">
+                    <motion.div whileHover={{ scale: 1.2 }} className="text-blue-500">
                         <SiReact title="React.js"/>
                     </motion.div>
-                    <motion.div whileHover={{scale: 1.2}} className="text-black">
+                    <motion.div whileHover={{ scale: 1.2 }} className="text-black">
                         <SiNextdotjs title="Next.js"/>
                     </motion.div>
-                    <motion.div whileHover={{scale: 1.2}} className="text-blue-400">
+                    <motion.div whileHover={{ scale: 1.2 }} className="text-blue-400">
                         <SiTailwindcss title="Tailwind CSS"/>
                     </motion.div>
-                    <motion.div whileHover={{scale: 1.2}} className="text-green-500">
+                    <motion.div whileHover={{ scale: 1.2 }} className="text-green-500">
                         <SiMongodb title="MongoDB"/>
                     </motion.div>
-                    <motion.div whileHover={{scale: 1.2}} className="text-yellow-500">
+                    <motion.div whileHover={{ scale: 1.2 }} className="text-yellow-500">
                         <SiJavascript title="JavaScript"/>
                     </motion.div>
                 </div>
@@ -125,9 +105,9 @@ export default function Home() {
             {/* Experience Section */}
             <motion.section
                 className="mt-16 px-4 text-left max-w-2xl mx-auto bg-gray-900 p-6 rounded-lg"
-                initial={{opacity: 0, y: 50}}
-                animate={{opacity: 1, y: 0}}
-                transition={{delay: 0.3}}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
             >
                 <h2 className="text-xl font-semibold mb-6 sm:text-2xl text-center text-white">Experience</h2>
 
@@ -147,18 +127,18 @@ export default function Home() {
             {/*Featured Projects*/}
             <motion.section
                 className="mt-16 px-4 text-left max-w-6xl mx-auto"
-                initial={{opacity: 0, y: 50}}
-                animate={{opacity: 1, y: 0}}
-                transition={{delay: 0.2}}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
             >
                 <h2 className="text-xl font-semibold mb-6 sm:text-2xl text-center">Featured Projects</h2>
                 <div className="grid gap-6 sm:grid-cols-3">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
-                            whileHover={{scale: 1.05}}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
                             className="p-6 bg-white text-black shadow-md rounded-lg hover:shadow-lg transition border border-gray-200"
-
                         >
                             <h3 className="text-lg font-semibold">{project.title}</h3>
                             {/* Navigate to the project details page */}
@@ -169,7 +149,6 @@ export default function Home() {
                     ))}
                 </div>
             </motion.section>
-
 
         </section>
     );
