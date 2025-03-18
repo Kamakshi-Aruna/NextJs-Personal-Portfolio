@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Download } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { professionalExperience, skills, education, certifications, resume } from '@/lib/data';
 
 export default function Page() {
     const [activeTab, setActiveTab] = useState<'professional' | 'education'>('professional');
@@ -48,48 +49,34 @@ export default function Page() {
                         className="space-y-6"
                     >
                         {/* Professional Experience */}
-                        <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className="bg-white rounded-lg shadow-md p-6"
-                        >
-                            <h2 className="text-2xl font-semibold mb-4">Professional Experience</h2>
-                            <div>
-                                <div className="flex justify-between items-start mb-2">
-                                    <h3 className="text-xl font-medium">Junior Developer</h3>
-                                    <span className="text-gray-500">2024 - 2025</span>
+                        <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md p-6">
+                            <h2 className="text-2xl font-semibold mb-4">{professionalExperience.title}</h2>
+                            {professionalExperience.jobs.map((job, index) => (
+                                <div key={index}>
+                                    <div className="flex justify-between items-start mb-2">
+                                        <h3 className="text-xl font-medium">{job.position}</h3>
+                                        <span className="text-gray-500">{job.duration}</span>
+                                    </div>
+                                    <p className="text-gray-600 mb-2">{job.company}</p>
+                                    <ul className="list-disc pl-5 text-gray-700">
+                                        {job.responsibilities.map((item, i) => (
+                                            <li key={i}>{item}</li>
+                                        ))}
+                                    </ul>
                                 </div>
-                                <p className="text-gray-600 mb-2">Recruitly.io</p>
-                                <ul className="list-disc pl-5 text-gray-700">
-                                    <li>Assisted in front-end development using HTML, CSS, and JavaScript, ReactJs, Next.js</li>
-                                    <li>Participated in daily standup meetings and sprint planning</li>
-                                    <li>Fixed bugs and implemented small feature requests</li>
-                                </ul>
-                            </div>
+                            ))}
                         </motion.div>
 
                         {/* Skills */}
-                        <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className="bg-white rounded-lg shadow-md p-6"
-                        >
-                            <h2 className="text-2xl font-semibold mb-4">Skills</h2>
+                        <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md p-6">
+                            <h2 className="text-2xl font-semibold mb-4">{skills.title}</h2>
                             <div className="grid grid-cols-2 gap-4">
-                                <div>
-                                    <h3 className="font-medium mb-2">Programming Languages</h3>
-                                    <p className="text-gray-700">Java, JavaScript, SQL</p>
-                                </div>
-                                <div>
-                                    <h3 className="font-medium mb-2">Frameworks & Libraries</h3>
-                                    <p className="text-gray-700">React, Next.js</p>
-                                </div>
-                                <div>
-                                    <h3 className="font-medium mb-2">Tools & Platforms</h3>
-                                    <p className="text-gray-700">Git, Docker, AWS, Vercel, GitHub Actions</p>
-                                </div>
-                                <div>
-                                    <h3 className="font-medium mb-2">Other Skills</h3>
-                                    <p className="text-gray-700">UI/UX Design</p>
-                                </div>
+                                {skills.categories.map((category, i) => (
+                                    <div key={i}>
+                                        <h3 className="font-medium mb-2">{category.name}</h3>
+                                        <p className="text-gray-700">{category.items.join(', ')}</p>
+                                    </div>
+                                ))}
                             </div>
                         </motion.div>
                     </motion.div>
@@ -105,45 +92,31 @@ export default function Page() {
                         className="space-y-6"
                     >
                         {/* Education */}
-                        <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className="bg-white rounded-lg shadow-md p-6"
-                        >
-                            <h2 className="text-2xl font-semibold mb-4">Education</h2>
+                        <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md p-6">
+                            <h2 className="text-2xl font-semibold mb-4">{education.title}</h2>
                             <div>
                                 <div className="flex justify-between items-start mb-2">
-                                    <h3 className="text-xl font-medium">Bachelor of Science in Computer Science</h3>
-                                    <span className="text-gray-500">2009 - 2013</span>
+                                    <h3 className="text-xl font-medium">{education.degree}</h3>
+                                    <span className="text-gray-500">{education.duration}</span>
                                 </div>
-                                <p className="text-gray-600">SV University</p>
-                                <p className="text-gray-700 mt-2">
-                                    Core coursework included algorithms, data structures, database systems, and web development. Minor in
-                                    Mathematics.
-                                </p>
+                                <p className="text-gray-600">{education.university}</p>
+                                <p className="text-gray-700 mt-2">{education.description}</p>
                             </div>
                         </motion.div>
 
                         {/* Certifications */}
-                        <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className="bg-white rounded-lg shadow-md p-6"
-                        >
-                            <h2 className="text-2xl font-semibold mb-4">Certifications</h2>
+                        <motion.div whileHover={{ scale: 1.02 }} className="bg-white rounded-lg shadow-md p-6">
+                            <h2 className="text-2xl font-semibold mb-4">{certifications.title}</h2>
                             <div className="space-y-4">
-                                <div>
-                                    <div className="flex justify-between items-start">
-                                        <h3 className="text-xl font-medium">Java Certified Developer</h3>
-                                        <span className="text-gray-500">2023</span>
+                                {certifications.list.map((cert, i) => (
+                                    <div key={i}>
+                                        <div className="flex justify-between items-start">
+                                            <h3 className="text-xl font-medium">{cert.name}</h3>
+                                            <span className="text-gray-500">{cert.year}</span>
+                                        </div>
+                                        <p className="text-gray-600">{cert.provider}</p>
                                     </div>
-                                    <p className="text-gray-600">Jspiders</p>
-                                </div>
-                                <div>
-                                    <div className="flex justify-between items-start">
-                                        <h3 className="text-xl font-medium">MongoDB Certified Developer</h3>
-                                        <span className="text-gray-500">2023</span>
-                                    </div>
-                                    <p className="text-gray-600">Jspiders</p>
-                                </div>
+                                ))}
                             </div>
                         </motion.div>
                     </motion.div>
@@ -151,21 +124,13 @@ export default function Page() {
             </AnimatePresence>
 
             {/* Resume Download Section */}
-            <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="mt-10 bg-gray-50 rounded-lg p-6 shadow-md"
-            >
+            <motion.div whileHover={{ scale: 1.02 }} className="mt-10 bg-gray-50 rounded-lg p-6 shadow-md">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h2 className="text-2xl font-semibold mb-2">Download My Resume</h2>
-                        <p className="text-gray-600">Get a complete overview of my experience and qualifications</p>
+                        <h2 className="text-2xl font-semibold mb-2">{resume.title}</h2>
+                        <p className="text-gray-600">{resume.description}</p>
                     </div>
-                    <Link
-                        href="/Aruna_CV.pdf"
-                        className="bg-blue-600 text-white py-2 px-4 rounded-md flex items-center hover:bg-blue-700 transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <Link href={resume.filePath} className="bg-blue-600 text-white py-2 px-4 rounded-md flex items-center hover:bg-blue-700 transition-colors" target="_blank" rel="noopener noreferrer">
                         <Download className="w-4 h-4 mr-2" />
                         Download CV
                     </Link>
