@@ -56,7 +56,7 @@ export default function ProjectsPage() {
             >
                 {/* Page Title */}
                 <motion.h1
-                    className="text-3xl font-bold text-gray-900"
+                    className="text-3xl  text-gray-800"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
