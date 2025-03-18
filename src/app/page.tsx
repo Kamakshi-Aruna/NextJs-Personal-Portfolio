@@ -45,11 +45,10 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
             >
-                <span>Hello, I&apos;m <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Aruna Kamakshi</span>.</span> I&apos;m a {" "}
-                <span>React developer</span> with{" "}
-                <span></span> of experience 4 months. I enjoy
-                building <span className="italic">sites & apps</span>. My focus is{" "}
-                <span className="underline">React (Next.js)</span>.
+                <span>Hello, I&apos;m <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Aruna Kamakshi</span>.</span> I&apos;m a passionate{" "}
+                <span>Web Developer</span> specializing in{" "}
+                <span>React (Next.js)</span> and modern JavaScript frameworks. I have a strong focus on creating{" "}
+                <span className="italic">dynamic, user-centric web applications</span> that offer seamless user experiences and optimal performance.
             </motion.h1>
 
             {/* Call-to-Action Buttons */}
