@@ -2,7 +2,7 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 interface FormData {
     name: string;
@@ -85,7 +85,7 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
         >
             <motion.h1
-                className="text-3xl font-bold mb-6 text-center text-blue-600"
+                className="text-3xl  mb-6 text-center text-black"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -193,7 +193,7 @@ export default function ContactPage() {
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.7 }}
                 >
-                    Email: arunaKamakshi09@example.com
+                    Email: arunaKamakshi09@gmail.com
                 </motion.p>
             </motion.div>
         </motion.div>
