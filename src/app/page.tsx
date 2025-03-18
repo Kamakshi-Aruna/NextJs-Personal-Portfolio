@@ -146,21 +146,22 @@ export default function Home() {
 
             {/*Featured Projects*/}
             <motion.section
-                className="mt-16 px-4 text-left max-w-2xl mx-auto"
+                className="mt-16 px-4 text-left max-w-6xl mx-auto"
                 initial={{opacity: 0, y: 50}}
                 animate={{opacity: 1, y: 0}}
                 transition={{delay: 0.2}}
             >
                 <h2 className="text-xl font-semibold mb-6 sm:text-2xl text-center">Featured Projects</h2>
-                <div className="grid gap-6 sm:grid-cols-2">
+                <div className="grid gap-6 sm:grid-cols-3">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
                             whileHover={{scale: 1.05}}
-                            className="p-6 bg-gray-900 text-white shadow-md rounded-lg hover:shadow-xl transition"
+                            className="p-6 bg-white text-black shadow-md rounded-lg hover:shadow-lg transition border border-gray-200"
+
                         >
                             <h3 className="text-lg font-semibold">{project.title}</h3>
-                            <p className="text-gray-300">{project.description}</p>
+                            <p className="text-black">{project.description}</p>
                             {/* Navigate to the project details page */}
                             <Link href={`/projects/${project.id}`} className="text-blue-400 mt-2 inline-block">
                                 Read more →
