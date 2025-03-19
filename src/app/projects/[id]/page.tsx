@@ -5,7 +5,7 @@ import {FaGithub, FaExternalLinkAlt} from "react-icons/fa";
 import {projects} from "@/lib/data";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {use, useState} from "react";
+import {use, useEffect, useState} from "react";
 
 export default function ProjectDetailPage({
                                               params,
@@ -21,6 +21,15 @@ export default function ProjectDetailPage({
 
     // State to manage the displayed image
     const [displayedImage, setDisplayedImage] = useState(project.screenshots[0]);
+    const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+    // Detect large screens (lg and above)
+    useEffect(() => {
+        const checkScreenSize = () => setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint
+        checkScreenSize(); // Check on mount
+        window.addEventListener("resize", checkScreenSize);
+        return () => window.removeEventListener("resize", checkScreenSize);
+    }, []);
 
     // Animation variants
     const containerVariants = {
@@ -172,15 +181,16 @@ export default function ProjectDetailPage({
                                 <div className="relative p-4">
                                     <div className="flex justify-center">
                                         <div
-                                            className="w-[900px] h-[320px] rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 transform hover:-translate-y-1">
+                                            className="w-full sm:w-3/4 md:w-[600px] lg:w-[900px] h-auto rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 transform hover:-translate-y-1">
                                             <Image
                                                 src={displayedImage}
                                                 alt="Project Screenshot"
                                                 width={900}
                                                 height={350}
-                                                className="w-full h-[320px] rounded-lg transition-all duration-500 ease-in-out scale-100"
-                                                onMouseEnter={() => setDisplayedImage(project.screenshots[1])}
-                                                onMouseLeave={() => setDisplayedImage(project.screenshots[0])}
+                                                quality={90}
+                                                className="w-full h-auto max-h-[350px] rounded-lg transition-all duration-500 ease-in-out scale-100 object-cover"
+                                                onMouseEnter={() => isLargeScreen && setDisplayedImage(project.screenshots[1])}
+                                                onMouseLeave={() => isLargeScreen && setDisplayedImage(project.screenshots[0])}
                                             />
                                         </div>
                                     </div>
