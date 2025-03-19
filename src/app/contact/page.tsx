@@ -3,7 +3,7 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import toast, { Toaster } from "react-hot-toast"; // Import toast and Toaster
+import toast, { Toaster } from "react-hot-toast";
 
 interface FormData {
     name: string;
@@ -36,10 +36,10 @@ export default function ContactPage() {
             });
 
             if (response.ok) {
-                toast.success("Email sent successfully!"); // Success toast
+                toast.success("Email sent successfully!");
                 setFormData({ name: "", email: "", message: "" });
             } else {
-                toast.error("Error sending email. Try again!"); // Error toast
+                toast.error("Error sending email. Try again!");
             }
         } finally {
             setIsSubmitting(false);
