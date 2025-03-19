@@ -140,7 +140,7 @@ export default function ProjectsPage() {
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.3 + index * 0.05 }}
                             >
-                                {project.description}
+                                {project.shortDescription}
                             </motion.p>
 
                             {/* Technologies with improved tags */}
