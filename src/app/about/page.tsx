@@ -5,11 +5,10 @@ import {Download} from "lucide-react";
 import Link from "next/link";
 import {motion, AnimatePresence} from "framer-motion";
 import {
-    professionalExperience,
     skills,
     education,
     certifications,
-    resume,
+    resume, experienceData,
 } from "@/lib/data";
 
 export default function Page() {
@@ -56,14 +55,12 @@ export default function Page() {
                             whileHover={{scale: 1.02}}
                             className="bg-white rounded-lg shadow-md p-6"
                         >
-                            <h2 className="text-2xl mb-4">
-                                {professionalExperience.title}
-                            </h2>
-                            {professionalExperience.jobs.map((job, index) => (
+                            <h2 className="text-2xl mb-4">Professional Experience</h2>
+                            {experienceData.map((job, index) => (
                                 <div key={index}>
                                     <div className="flex justify-between items-start mb-2">
-                                        <h3 className="text-xl">{job.position}</h3>
-                                        <span className="text-gray-500">{job.duration}</span>
+                                        <h3 className="text-xl">{job.title}</h3>
+                                        <span className="text-gray-500">{job.period}</span>
                                     </div>
                                     <p className="text-gray-600 mb-2">{job.company}</p>
                                     <ul className="list-disc pl-5 text-gray-700">

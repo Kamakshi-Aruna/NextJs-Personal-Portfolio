@@ -7,7 +7,7 @@ import Link from "next/link";
 import {BsArrowRight} from "react-icons/bs";
 import {HiDownload} from "react-icons/hi";
 import {SiReact, SiNextdotjs, SiMysql, SiGit, SiVercel, SiJavascript} from "react-icons/si";
-import {projects} from "@/lib/data";
+import {experienceData, projects} from "@/lib/data";
 
 export default function Home() {
     return (
@@ -119,27 +119,25 @@ export default function Home() {
                 </h2>
 
                 <div className="space-y-6">
-                    <div
-                        className="p-6 bg-white shadow-md border border-gray-100 rounded-lg transition-all duration-300 hover:shadow-xl hover:border-blue-200 transform hover:-translate-y-1">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                            <h3 className="text-xl text-gray-800">React Developer</h3>
-                            <p className="text-blue-600 font-medium">Recruitly.io • 2024 - 2025</p>
+                    {experienceData.map((experience, index) => (
+                        <div
+                            key={`${experience.company}-${index}`}
+                            className="p-6 bg-white shadow-md border border-gray-100 rounded-lg transition-all duration-300 hover:shadow-xl hover:border-blue-200 transform hover:-translate-y-1"
+                        >
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                                <h3 className="text-xl text-gray-800">{experience.title}</h3>
+                                <p className="text-blue-600 font-medium">{experience.company} • {experience.period}</p>
+                            </div>
+                            <ul className="list-none mt-4 text-gray-700 space-y-3">
+                                {experience.responsibilities.map((responsibility, idx) => (
+                                    <li key={idx} className="flex items-start">
+                                        <span className="text-blue-500 mr-2">•</span>
+                                        <span>{responsibility}</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
-                        <ul className="list-none mt-4 text-gray-700 space-y-3">
-                            <li className="flex items-start">
-                                <span className="text-blue-500 mr-2">•</span>
-                                <span>Developed dynamic web applications with React.js and Redux.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-blue-500 mr-2">•</span>
-                                <span>Implemented responsive designs using Tailwind CSS.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-blue-500 mr-2">•</span>
-                                <span>Enhanced application performance by optimizing code and assets.</span>
-                            </li>
-                        </ul>
-                    </div>
+                    ))}
                 </div>
             </motion.section>
 

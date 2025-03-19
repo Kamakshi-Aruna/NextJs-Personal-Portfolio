@@ -12,6 +12,13 @@ export interface Project {
     liveDemoUrl?: string;
 }
 
+export interface ExperienceItem {
+    title: string;
+    company: string;
+    period: string;
+    responsibilities: string[];
+}
+
 export const projects: Project[] = [
     {
         id: 1,
@@ -52,22 +59,6 @@ export const projects: Project[] = [
         liveDemoUrl: "https://aruna11-e-commerce-application.netlify.app/",
     },
 ];
-
-export const professionalExperience = {
-    title: "Professional Experience",
-    jobs: [
-        {
-            position: "Junior Developer",
-            company: "Recruitly.io",
-            duration: "2024 - 2025",
-            responsibilities: [
-                "Assisted in front-end development using HTML, CSS, and JavaScript, ReactJs, Next.js",
-                "Participated in daily standup meetings and sprint planning",
-                "Fixed bugs and implemented small feature requests"
-            ]
-        }
-    ]
-};
 
 export const skills = {
     title: "Skills",
@@ -123,3 +114,15 @@ export const resume = {
     filePath: "/Aruna_CV.pdf"
 };
 
+export const experienceData: ExperienceItem[] = [
+    {
+        title: "React Developer",
+        company: "Recruitly.io",
+        period: "2024 - 2025",
+        responsibilities: [
+            "Developed dynamic web applications with React.js and Redux.",
+            "Implemented responsive designs using Tailwind CSS.",
+            "Enhanced application performance by optimizing code and assets."
+        ]
+    }
+];
