@@ -27,7 +27,7 @@ export const projects: Project[] = [
         technologies: ["Next.js", "Tailwind CSS", "Chart.js"],
         image: "/nextjs-dashboard.png",
         category: "Frontend Development",
-        screenshots: ["/nextjs-dashboard.png"],
+        screenshots: ["/nextjs-dashboard.png","/nextjs-dashboard-1.png"],
         problemStatement: "Managing and visualizing data efficiently can be challenging without an interactive dashboard.",
         solutionApproach: "Developed a dynamic dashboard using Next.js with reusable UI components and integrated charts for real-time data representation.",
         githubUrl: "https://github.com/Kamakshi-Aruna/nextjs-dashboard",

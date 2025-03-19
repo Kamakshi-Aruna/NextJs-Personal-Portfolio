@@ -5,7 +5,7 @@ import {FaGithub, FaExternalLinkAlt} from "react-icons/fa";
 import {projects} from "@/lib/data";
 import Image from "next/image";
 import {motion} from "framer-motion";
-import {use} from "react";
+import {use, useState} from "react";
 
 export default function ProjectDetailPage({
                                               params,
@@ -18,6 +18,9 @@ export default function ProjectDetailPage({
     if (!project) {
         notFound();
     }
+
+    // State to manage the displayed image
+    const [displayedImage, setDisplayedImage] = useState(project.screenshots[0]);
 
     // Animation variants
     const containerVariants = {
@@ -169,13 +172,15 @@ export default function ProjectDetailPage({
                                 <div className="relative p-4">
                                     <div className="flex justify-center">
                                         <div
-                                            className="w-[900px] h-[350px] rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 transform hover:-translate-y-1">
+                                            className="w-[900px] h-[320px] rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 transform hover:-translate-y-1">
                                             <Image
-                                                src={project.screenshots[0]}
+                                                src={displayedImage}
                                                 alt="Project Screenshot"
                                                 width={900}
                                                 height={350}
-                                                className="rounded-lg"
+                                                className="w-full h-[320px] rounded-lg transition-all duration-500 ease-in-out scale-100"
+                                                onMouseEnter={() => setDisplayedImage(project.screenshots[1])}
+                                                onMouseLeave={() => setDisplayedImage(project.screenshots[0])}
                                             />
                                         </div>
                                     </div>
