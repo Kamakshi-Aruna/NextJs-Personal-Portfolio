@@ -3,6 +3,7 @@ import { SiReact, SiNextdotjs, SiMysql, SiGit, SiVercel, SiJavascript } from "re
 export interface Project {
     id: number;
     title: string;
+    shortDescription:string;
     description: string;
     technologies: string[];
     image: string;
@@ -25,6 +26,7 @@ export const projects: Project[] = [
     {
         id: 1,
         title: "Next.js Dashboard",
+        shortDescription: "A sleek dashboard with real-time data visualization.",
         description: "A modern and responsive dashboard built with Next.js, featuring real-time data visualization and user-friendly components.",
         technologies: ["Next.js", "Tailwind CSS", "Chart.js"],
         image: "/nextjs-dashboard.png",
@@ -38,6 +40,7 @@ export const projects: Project[] = [
     {
         id: 2,
         title: "Student Management",
+        shortDescription: "A full-stack app for handling student records and grades.",
         description: "A full-stack student management application for efficiently handling student records, grades, and performance tracking.",
         technologies: ["Next.js", "MongoDB"],
         image: "/StudentManagement-Table.png",
@@ -50,6 +53,7 @@ export const projects: Project[] = [
     {
         id: 3,
         title: "E-Commerce",
+        shortDescription: "A scalable e-commerce platform with secure payments.",
         description: "An interactive and scalable e-commerce platform for browsing, filtering, and purchasing products securely.",
         technologies: ["ReactJs", "Node.js"],
         image: "/e-commerce.png",

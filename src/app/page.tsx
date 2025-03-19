@@ -158,6 +158,7 @@ export default function Home() {
                             className="p-6 bg-white text-black shadow-md rounded-lg hover:shadow-lg transition border border-gray-200"
                         >
                             <h3 className="text-lg font-semibold">{project.title}</h3>
+                            <p>{project.shortDescription}</p>
                             {/* Navigate to the project details page */}
                             <Link href={`/projects/${project.id}`} className="text-blue-400 mt-2 inline-block">
                                 Read more →
