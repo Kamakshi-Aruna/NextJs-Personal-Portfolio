@@ -1,5 +1,3 @@
-import { SiReact, SiNextdotjs, SiMysql, SiGit, SiVercel, SiJavascript } from "react-icons/si";
-
 export interface Project {
     id: number;
     title: string;
@@ -72,27 +70,27 @@ export const skills = {
         {
             name: "Programming Languages",
             items: [
-                { name: "JavaScript", percentage: 85, icon: SiJavascript, color: "text-yellow-500" },
-                { name: "SQL", percentage: 75, icon: SiMysql, color: "text-blue-500" }
+                { name: "JavaScript", percentage: 85},
+                { name: "SQL", percentage: 75}
             ]
         },
         {
             name: "Frameworks & Libraries",
             items: [
-                { name: "React", percentage: 90, icon: SiReact, color: "text-blue-500" },
-                { name: "Next.js", percentage: 85, icon: SiNextdotjs, color: "text-black" }
+                { name: "React", percentage: 90},
+                { name: "Next.js", percentage: 85}
             ]
         },
         {
             name: "Tools & Platforms",
             items: [
-                { name: "Git", percentage: 80, icon: SiGit, color: "text-orange-500" },
-                { name: "Vercel", percentage: 60, icon: SiVercel, color: "text-black" }
+                { name: "Git", percentage: 80},
+                { name: "Vercel", percentage: 60}
             ]
         },
         {
             name: "Other Skills",
-            items: [{ name: "UI/UX Design", percentage: 50, icon: null, color: "" }] // No icon for UI/UX
+            items: [{ name: "UI/UX Design", percentage: 50, icon: null, color: "" }]
         }
     ]
 };
