@@ -1,141 +1,190 @@
 "use client";
 
-import { notFound } from "next/navigation";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
-import { projects } from "@/lib/data";
+import {notFound} from "next/navigation";
+import {FaGithub, FaExternalLinkAlt} from "react-icons/fa";
+import {projects} from "@/lib/data";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { use } from "react";
+import {motion} from "framer-motion";
+import {use} from "react";
 
 export default function ProjectDetailPage({
                                               params,
                                           }: {
     params: Promise<{ id: string }>;
 }) {
-    const { id } = use(params);
+    const {id} = use(params);
     const project = projects.find((p) => p.id === Number(id));
 
     if (!project) {
         notFound();
     }
 
+    // Animation variants
+    const containerVariants = {
+        hidden: {opacity: 0},
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: {opacity: 0, y: 30},
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 12,
+                stiffness: 100,
+            },
+        },
+    };
+
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-4xl mx-auto p-6 mt-20 bg-white shadow-lg rounded-lg overflow-hidden"
-        >
-            {/* Project Title */}
-            <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-3xl font-semibold mb-4"
-            >
-                {project.title}
-            </motion.h1>
+        <div className="min-h-screen mt-10">
+            <div className="max-w-7xl mx-auto px-6 py-16">
+                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between">
 
-            {/* Description */}
-            <motion.p
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="text-gray-700 mb-4"
-            >
-                {project.description}
-            </motion.p>
-
-            {/* Links */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex gap-4 mt-4"
-            >
-                {project.githubUrl && (
-                    <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg shadow-sm text-gray-700 hover:bg-gray-200 hover:scale-105 transition-transform"
+                    {/* Left Column - Text Content */}
+                    <motion.div
+                        className="w-full lg:w-5/12 mb-12 lg:mb-0"
+                        initial={{opacity: 0, x: -20}}
+                        animate={{opacity: 1, x: 0}}
+                        transition={{duration: 0.6}}
                     >
-                        <FaGithub className="text-xl text-gray-800" />
-                        GitHub
-                    </a>
-                )}
-                {project.liveDemoUrl && (
-                    <a
-                        href={project.liveDemoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-lg shadow-sm text-blue-700 hover:bg-blue-200 hover:scale-105 transition-transform"
-                    >
-                        <FaExternalLinkAlt className="text-xl text-blue-600" />
-                        Live Demo
-                    </a>
-                )}
-            </motion.div>
-
-            {/* Problem & Solution Sections */}
-            <div className="mt-8">
-                <h2 className="text-xl font-semibold mb-4">Problem Statement</h2>
-                <p className="text-gray-700">{project.problemStatement}</p>
-
-                <h2 className="text-xl font-semibold mt-6 mb-4">Solution Approach</h2>
-                <p className="text-gray-700">{project.solutionApproach}</p>
-            </div>
-
-            {/* Technologies Used */}
-            <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="mt-8"
-            >
-                <h2 className="text-xl font-semibold mb-4">Technologies Used</h2>
-                <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                        <motion.span
-                            key={tech}
-                            initial={{ opacity: 0, scale: 0.5 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.4, delay: 0.6 }}
-                            className="px-3 py-1 bg-gray-200 text-sm rounded-full"
+                        <motion.h1
+                            className="text-3xl sm:text-3xl text-gray-900 mb-6"
+                            initial={{opacity: 0, y: -20}}
+                            animate={{opacity: 1, y: 0}}
+                            transition={{duration: 0.5, delay: 0.2}}
                         >
-                            {tech}
-                        </motion.span>
-                    ))}
-                </div>
-            </motion.div>
+                            {project.title}
+                        </motion.h1>
 
-            {/* Screenshots */}
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-8"
-            >
-                <h2 className="text-xl font-semibold mb-4">Screenshots</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {project.screenshots.map((screenshot, index) => (
+                        <motion.p
+                            className="text-lg text-gray-600 mb-6"
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
+                            transition={{duration: 0.5, delay: 0.3}}
+                        >
+                            {project.description}
+                        </motion.p>
+
                         <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+                            className="grid grid-cols-1 gap-8"
+                            variants={containerVariants}
+                            initial="hidden"
+                            animate="visible"
                         >
-                            <Image
-                                src={screenshot}
-                                alt={`Screenshot ${index + 1}`}
-                                width={600}
-                                height={400}
-                                className="w-full h-auto rounded-lg"
-                            />
+                            <motion.div className="flex items-start" variants={itemVariants}>
+                                <div>
+                                    <h3 className="text-lg font-medium text-gray-900">Problem Statement</h3>
+                                    <p className="mt-2 text-gray-600">{project.problemStatement}</p>
+                                </div>
+                            </motion.div>
+
+                            <motion.div className="flex items-start" variants={itemVariants}>
+                                <div>
+                                    <h3 className="text-lg font-medium text-gray-900">Solution Approach</h3>
+                                    <p className="mt-2 text-gray-600">{project.solutionApproach}</p>
+                                </div>
+                            </motion.div>
+
+                            <motion.div className="flex items-start" variants={itemVariants}>
+                                <div>
+                                    <h3 className="text-lg font-medium text-gray-900">Technologies Used</h3>
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                        {project.technologies.map((tech) => (
+                                            <motion.span
+                                                key={tech}
+                                                initial={{opacity: 0, scale: 0.5}}
+                                                animate={{opacity: 1, scale: 1}}
+                                                transition={{duration: 0.4, delay: 0.6}}
+                                                className="px-3 py-1 bg-gray-200 text-sm rounded-full"
+                                            >
+                                                {tech}
+                                            </motion.span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
                         </motion.div>
-                    ))}
+
+                        {/* Links */}
+                        <motion.div
+                            className="flex gap-4 mt-6"
+                            initial={{opacity: 0, scale: 0.8}}
+                            animate={{opacity: 1, scale: 1}}
+                            transition={{duration: 0.5, delay: 0.4}}
+                        >
+                            {project.githubUrl && (
+                                <a
+                                    href={project.githubUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-lg shadow-sm text-gray-700 hover:bg-gray-200 hover:scale-105 transition-transform"
+                                >
+                                    <FaGithub className="text-xl text-gray-800"/>
+                                    GitHub
+                                </a>
+                            )}
+                            {project.liveDemoUrl && (
+                                <a
+                                    href={project.liveDemoUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-lg shadow-sm text-blue-700 hover:bg-blue-200 hover:scale-105 transition-transform"
+                                >
+                                    <FaExternalLinkAlt className="text-xl text-blue-600"/>
+                                    Live Demo
+                                </a>
+                            )}
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Right Column - Image Preview */}
+                    <motion.div
+                        className="w-full lg:w-6/12"
+                        initial={{opacity: 0, scale: 0.95}}
+                        animate={{opacity: 1, scale: 1}}
+                        transition={{duration: 0.6, delay: 0.3}}
+                    >
+                        <div className="bg-white rounded-lg shadow-xl overflow-hidden">
+                            {/* Image Header */}
+                            <div className="bg-blue-600 text-white px-6 py-4 flex items-center justify-between">
+                                <div className="flex space-x-2">
+                                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <div className="text-center font-medium">{project.title}</div>
+                                <div className="w-16"></div>
+                            </div>
+
+                            {/* Image Preview */}
+                            <div className="p-6">
+                                <div className="relative p-4">
+                                    <div className="flex justify-center">
+                                        <div
+                                            className="w-[900px] h-[350px] rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:border-blue-200 transform hover:-translate-y-1">
+                                            <Image
+                                                src={project.screenshots[0]}
+                                                alt="Project Screenshot"
+                                                width={900}
+                                                height={350}
+                                                className="rounded-lg"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     );
 }
