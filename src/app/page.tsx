@@ -11,7 +11,7 @@ import {experienceData, projects} from "@/lib/data";
 
 export default function Home() {
     return (
-        <section id="home" className="mb-28 max-w-[50rem] mx-auto text-center sm:mb-0 scroll-mt-[100rem] mt-30">
+        <section id="home" className="mb-10 max-w-[50rem] mx-auto text-center sm:mb-0 scroll-mt-[100rem] mt-20">
 
             {/* Hero Section */}
             <motion.div
