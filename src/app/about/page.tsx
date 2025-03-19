@@ -161,7 +161,7 @@ export default function Page() {
             {/* Resume Download Section */}
             <motion.div
                 whileHover={{scale: 1.02}}
-                className="mt-10 bg-gray-50 rounded-lg p-6 shadow-md"
+                className="mt-10 bg-white rounded-lg p-6 shadow-md"
             >
                 <div className="flex items-center justify-between">
                     <div>
