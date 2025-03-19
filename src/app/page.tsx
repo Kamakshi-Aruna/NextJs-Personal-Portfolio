@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
-import { HiDownload } from "react-icons/hi";
-import { SiReact, SiNextdotjs, SiMysql,SiGit,SiVercel,SiJavascript  } from "react-icons/si";
-import { projects } from "@/lib/data";
+import {BsArrowRight} from "react-icons/bs";
+import {HiDownload} from "react-icons/hi";
+import {SiReact, SiNextdotjs, SiMysql, SiGit, SiVercel, SiJavascript} from "react-icons/si";
+import {projects} from "@/lib/data";
 
 export default function Home() {
     return (
@@ -16,15 +16,15 @@ export default function Home() {
             {/* Hero Section */}
             <motion.div
                 className="flex items-center justify-center"
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                initial={{opacity: 0, y: -50}}
+                animate={{opacity: 1, y: 0}}
+                transition={{duration: 0.5}}
             >
                 <div className="relative">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ type: "spring", stiffness: 100, damping: 10 }}
+                        initial={{opacity: 0, scale: 0.8}}
+                        animate={{opacity: 1, scale: 1}}
+                        transition={{type: "spring", stiffness: 100, damping: 10}}
                     >
                         <Image
                             src="/profile.jpg"
@@ -41,22 +41,25 @@ export default function Home() {
 
             <motion.h1
                 className="mb-10 mt-4 px-4 text-xl font-medium !leading-[1.5] sm:text-2xl"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+                initial={{opacity: 0, y: 30}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.2, duration: 0.5}}
             >
-                <span>Hello, I&apos;m <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Aruna Kamakshi</span>.</span> I&apos;m a passionate{" "}
+                <span>Hello, I&apos;m <span
+                    className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Aruna Kamakshi</span>.</span> I&apos;m
+                a passionate{" "}
                 <span>Web Developer</span> specializing in{" "}
                 <span>React (Next.js)</span> and modern JavaScript frameworks. I have a strong focus on creating{" "}
-                <span className="italic">dynamic, user-centric web applications</span> that offer seamless user experiences and optimal performance.
+                <span className="italic">dynamic, user-centric web applications</span> that offer seamless user
+                experiences and optimal performance.
             </motion.h1>
 
             {/* Call-to-Action Buttons */}
             <motion.div
                 className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
+                initial={{opacity: 0, y: 100}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.3, duration: 0.5}}
             >
                 <Link
                     href="/contact"
@@ -77,9 +80,9 @@ export default function Home() {
             {/* Skills Section */}
             <motion.section
                 className="mt-16 px-4"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
+                initial={{opacity: 0, y: 50}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.4, duration: 0.5}}
             >
                 <h2 className="text-xl font-semibold mb-6 sm:text-2xl">Skills & Expertise</h2>
                 <div className="flex flex-wrap justify-center gap-6 text-4xl sm:text-5xl">
@@ -106,21 +109,35 @@ export default function Home() {
 
             {/* Experience Section */}
             <motion.section
-                className="mt-16 px-4 text-left max-w-2xl mx-auto bg-gray-900 p-6 rounded-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.5 }}
+                className="mt-16 px-6 text-left max-w-2xl mx-auto bg-gradient-to-b from-white to-gray-50 shadow-lg border border-gray-200 p-8 rounded-xl"
+                initial={{opacity: 0, y: 20}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.5, duration: 0.5}}
             >
-                <h2 className="text-xl font-semibold mb-6 sm:text-2xl text-center text-white">Experience</h2>
+                <h2 className="text-2xl mb-8 text-center text-gray-800">
+                    Experience
+                </h2>
 
                 <div className="space-y-6">
-                    <div className="p-4 bg-white shadow-md rounded-lg">
-                        <h3 className="text-lg font-semibold text-black">React Developer</h3>
-                        <p className="text-gray-700">Recruitly.io • 2024 - 2025</p>
-                        <ul className="list-disc list-inside mt-2 text-black">
-                            <li>Developed dynamic web applications with React.js and Redux.</li>
-                            <li>Implemented responsive designs using Tailwind CSS.</li>
-                            <li>Enhanced application performance by optimizing code and assets.</li>
+                    <div
+                        className="p-6 bg-white shadow-md border border-gray-100 rounded-lg transition-all duration-300 hover:shadow-xl hover:border-blue-200 transform hover:-translate-y-1">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                            <h3 className="text-xl text-gray-800">React Developer</h3>
+                            <p className="text-blue-600 font-medium">Recruitly.io • 2024 - 2025</p>
+                        </div>
+                        <ul className="list-none mt-4 text-gray-700 space-y-3">
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Developed dynamic web applications with React.js and Redux.</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Implemented responsive designs using Tailwind CSS.</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-blue-500 mr-2">•</span>
+                                <span>Enhanced application performance by optimizing code and assets.</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -129,17 +146,17 @@ export default function Home() {
             {/*Featured Projects*/}
             <motion.section
                 className="mt-16 px-4 text-left max-w-6xl mx-auto"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
+                initial={{opacity: 0, y: 50}}
+                animate={{opacity: 1, y: 0}}
+                transition={{delay: 0.6, duration: 0.5}}
             >
                 <h2 className="text-xl font-semibold mb-6 sm:text-2xl text-center">Featured Projects</h2>
                 <div className="grid gap-6 sm:grid-cols-3">
                     {projects.map((project, index) => (
                         <motion.div
                             key={index}
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            whileHover={{scale: 1.05}}
+                            transition={{duration: 0.3, ease: "easeOut"}}
                             className="p-6 bg-white text-black shadow-md rounded-lg hover:shadow-lg transition border border-gray-200"
                         >
                             <h3 className="text-lg font-semibold">{project.title}</h3>
