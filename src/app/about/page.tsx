@@ -4,12 +4,7 @@ import {useState} from "react";
 import {Download} from "lucide-react";
 import Link from "next/link";
 import {motion, AnimatePresence} from "framer-motion";
-import {
-    skills,
-    education,
-    certifications,
-    resume, experienceData,
-} from "@/lib/data";
+import {skills,education, certifications, resume, experienceData} from "@/lib/data";
 
 export default function Page() {
     const [activeTab, setActiveTab] = useState<"professional" | "education">(
