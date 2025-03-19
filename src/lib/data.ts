@@ -112,7 +112,6 @@ export const certifications = {
 export const resume = {
     title: "Download My Resume",
     description: "Get a complete overview of my experience and qualifications",
-    filePath: "/Aruna_CV.pdf"
 };
 
 export const experienceData: ExperienceItem[] = [

@@ -164,7 +164,8 @@ export default function Page() {
                         <p className="text-gray-600">{resume.description}</p>
                     </div>
                     <Link
-                        href={resume.filePath}
+                        href="/Aruna_CV.pdf"
+                        download="Aruna_CV.pdf"
                         className="bg-blue-600 text-white py-2 px-4 rounded-md flex items-center hover:bg-blue-700 transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
