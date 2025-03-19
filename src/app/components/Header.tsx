@@ -10,7 +10,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     return (
-        <nav className="bg-gray-100 text-black shadow-md fixed w-full z-10 px-10 py-4">
+        <nav className=" bg-white shadow-sm border-b border-gray-100 fixed w-full z-10 px-10 py-4">
             <div className="max-w-7xl mx-auto px-10 flex justify-between items-center">
                 <Link href="/" className="flex items-center space-x-3">
                     <span className="text-3xl font-bold tracking-wide bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
