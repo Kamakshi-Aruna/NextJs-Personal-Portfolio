@@ -20,6 +20,20 @@ export interface ExperienceItem {
     responsibilities: string[];
 }
 
+export interface Education {
+    title: string;
+    degree: string;
+    university: string;
+    duration: string;
+    description: string;
+}
+
+export interface Resume {
+    title: string;
+    description: string;
+}
+
+
 export const projects: Project[] = [
     {
         id: 1,
@@ -95,7 +109,7 @@ export const skills = {
     ]
 };
 
-export const education = {
+export const education:Education= {
     title: "Education",
     degree: "Bachelor of Science in Computer Science",
     university: "SV University",
@@ -111,7 +125,7 @@ export const certifications = {
     ]
 };
 
-export const resume = {
+export const resume:Resume = {
     title: "Download My Resume",
     description: "Get a complete overview of my experience and qualifications",
 };
